@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "outDir": "dist",
+    "rootDir": ".",        // project root
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "include": ["**/*.ts"],  // include all ts files in all folders
+  "exclude": ["node_modules", "dist"]
+}
