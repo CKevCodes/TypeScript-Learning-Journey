@@ -245,7 +245,7 @@ const user: User = {
 
 user.greet();
 
-export function logSystemEvenet(event: string, severity: "info"|"warning"|"error"){
+export function logSystemEvent(event: string, severity: "info"|"warning"|"error"){
     console.log(`System ${severity.toUpperCase}: ${event}.`);
 }
 
@@ -307,5 +307,31 @@ student1.greet();
 export type Car = (name: string) => string;
 
 export function newCar(name: string): Car {
-    return "car";
+    return (model: string) => `${name} car: ${model}`;
 }
+
+// typed functions
+
+export type MathOperation = (a: number, b: number) => number;
+
+
+// these are functions that adapted to MathOperation's function type
+const sum: MathOperation = function(a, b) {
+    return a+b;
+}
+const subtract: MathOperation = (a,b) => a-b;
+const multiply: MathOperation = (a,b) => a*b;
+const divide: MathOperation = function(a,b) {
+    if(b==0) return -1;
+    return a/b;
+}
+
+console.log(`returning a sum of 2+3: ${sum(2,3)}`);
+console.log("multiply (3.2)*(-2): " + multiply(3.2,-2));
+console.log("divide(-1 if undefined) (153.2)/0: " + divide(153.2,0));
+console.log("divide (128)/(8): " + divide(128,8));
+
+// import type
+//import type { MakeCar } from "./2)_Functions_Importing_Types/exportTypes";
+import { type MakeCar, ValidatePerson } from "./2)_Functions_Importing_Types/exportTypes";
+// this will reduce the size of the bundle, because we dont have to import all the information.

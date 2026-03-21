@@ -1,9 +1,9 @@
 # TypeScript-Learning-Journey
-This repository contains my TypeScript practice files from the Boot.dev “TypeScript for JavaScript Developers” course. It documents my learning progress and experiments while studying TypeScript fundamentals. This course is a stepping stone toward gaining a deeper understanding of the front-end ecosystem before building real-world front-end applications.
+This repository contains my TypeScript practice files from the "TypeScript Full Course for Beginners | Complete All-in-One Tutorial | 8 Hours". It documents my learning progress and experiments while studying TypeScript fundamentals. This course is a stepping stone toward gaining a deeper understanding of the front-end ecosystem before building real-world front-end applications.
 
 ## About
 
-- Contains my TypeScript practice files from the Boot.dev **“TypeScript for JavaScript Developers”** course.
+- Contains my TypeScript practice files from the **TypeScript Full Course for Beginners | Complete All-in-One Tutorial | 8 Hours**.
 - Documents my learning progress and coding experiments while studying TypeScript fundamentals.
 - Focuses on strengthening my understanding of typed JavaScript and modern development practices.
 - Serves as a stepping stone toward gaining a deeper understanding of the front-end ecosystem.
@@ -51,6 +51,6 @@ This repository contains my TypeScript practice files from the Boot.dev “TypeS
 
     - Lesson 1 Teaches about how types are used in TypeScript files.
     
-    - Lesson 2 Defines how Functions can return a specific type and how its parameters should be defined and be maintained throught the code block. There are also what we called preffered defined function types - 'inferred return types', in which a function can return any type and 'explicit return types', in which a function is defined to return a specific type
+    - Lesson 2 Defines how Functions can return a specific type and how its parameters should be defined and be maintained throughout the code block. There are also what we called preferred defined function types - 'inferred return types', in which a function can return any type and 'explicit return types', in which a function is defined to return a specific type
 
-    - Lesson 3
+    - Lesson 3 
