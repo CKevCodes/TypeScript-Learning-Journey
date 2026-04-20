@@ -32,9 +32,9 @@ const orderInfo: string = "Chicken Inasal-042";
 console.log("this is type: " + typeof orderInfo);
 console.log(getOrderNumberInfo(orderInfo));
 
-/*
-    ----- OPTIONAL PARAMETER + DEFAULT PARAMATERS -----
-*/
+
+// ----- OPTIONAL PARAMETER + DEFAULT PARAMETERS -----
+
 
 // OPTIONAL PARAMETERS
 // using default parameters with optional parameter in 'instruction?'
@@ -91,7 +91,7 @@ calculateSquarePerimeter();
 
 
 // Since we have defined default values for each parameters there's no need to define explicit types
-// This function does not only marks with a default but also makes the parameter optional,
+// This function does not only marks with a default(value and consequently, type) but also makes the parameter optional,
 //  this means that you don't have to put a '?'.
 export function estimateResponseTime(promptLength = 100, modelType = "text") {
     switch(modelType.toLowerCase()) {
@@ -123,12 +123,13 @@ export function newCharacter(name: string, role: string = "ranger"): string {
     // - Allows 2–4 total segments (like "Juan", "Juan-De", "Juan Dela Cruz")
     const nameRegex = /^[A-Z][a-zñ-]*(?:[ ][A-Z][a-zñ-]*){0,3}$/i;
 
+    // implied falsy, null, undefined equally
     if (!trimmedName) {
-        return "Error: name cannot be empty.";
+        return "\nError: name cannot be empty.";
     }
-
+    // compare trimmedName with nameRegex format
     if (!nameRegex.test(trimmedName)) {
-        return "Error: please enter a valid name (e.g., 'Juan Dela Cruz').";
+        return "\nError: please enter a valid name (e.g., 'Juan Dela Cruz').";
     }
 
     return `\n${trimmedName} is a ${role.toLowerCase()}.`;
@@ -138,3 +139,13 @@ console.log(newCharacter("Mark Zuckerberg Bill Gates Tyrant"));
 console.log(newCharacter("Mark Zuckerberg Bill Gates"));
 console.log(newCharacter("mark Zuckerberg."));
 
+// LITERAL TYPE - unique to javascript, a powerful feature
+// literal type allows you to not just define a string, number, or boolean but instead an actual value;
+//  so for example, both a string could have a value of "John" only and not any other. (level: 1 | 2 | 3 | 4): "success" | "fail"
+// It's called a literal types instead of a generic types, ie. string, number, boolean are generic types
+
+// An example of Literal Type function is: A function that takes 3 specific string values as an argument. So a Union of different values.
+
+// function aimTrajectory(radius: number, pi = Math.PI): number {
+//     return radius/
+// }
