@@ -7,15 +7,14 @@ type user = {
     age: string;
 }
 
-function distanceFormula(rate: string|number, time: number): number {
-    if(typeof rate === "string") {
+function distanceFormula(rate: string|number, time: number): number | void {
+    if(typeof rate === "string" && !isNaN(Number(rate))) {
         rate = parseFloat(rate);
-    }
+    } else return;
     return rate*time;
 }
 
 console.log(distanceFormula("15", 3.2));
-
 
 function getOrderNumberInfo(id: string|number){
     if(typeof id === "string") {
@@ -88,11 +87,9 @@ calculateSquarePerimeter();
 
 // DEFAULT PARAMETERS
 
-
-
 // Since we have defined default values for each parameters there's no need to define explicit types
 // This function does not only marks with a default(value and consequently, type) but also makes the parameter optional,
-//  this means that you don't have to put a '?'.
+//  this means that you don't have to put a '?' coalescence.
 export function estimateResponseTime(promptLength = 100, modelType = "text") {
     switch(modelType.toLowerCase()) {
         case "text":

@@ -22,6 +22,10 @@ type User = {
   role: 'admin' | 'user' | 'guest';
 };
 
+type TAdminProps = User & {
+    management: string;
+}
+
 // Usage example:
 const userApiResponse: ApiResponse<User> = {
   data: {

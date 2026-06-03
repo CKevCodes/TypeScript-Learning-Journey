@@ -1,25 +1,28 @@
 import type { ValidatePerson, MakeCar } from "./exportTypes";
+import type * as xpT from "./exportTypes";
 
-
-
-type MakeCarModel = string;
-
-const makeCarString:MakeCar = function(brandA) {
-    return `Licensed ${brandA}`;
-}
 
 // Import from an export Types
 type ownACar = (carBrand:MakeCar, carModel:MakeCarModel) => string;
 
+type MakeCarModel = string;
+type OwnACar = (carBrand: string, carModel: MakeCarModel) => string;
 
+function Myname(fName:xpT.name) {
+    return `Hi my name is ${fName}. It is so nice to meet you.`;
+}
+
+const makeCarString: MakeCar = function(brandA) {
+    return `Licensed ${brandA}`;
+};
+
+const boughtCar: OwnACar = (carBrand, carModel) => {
+    return `You just bought your dream car: ${makeCarString(carBrand)} model ${carModel}`;
+};
 
 const modelCar = "Supra 1800SPX";
 
-const boughtCar:ownACar = function(makeCarString("Nissan"), modelCar) {
-    return `You just bought your dream car: ${makeCarString} model ${modelCar}`;
-}
-
-console.log(boughtCar(makeCarString("brandCar"), modelCar));
+console.log(boughtCar("Nissan", modelCar));
 
 
 //
@@ -45,5 +48,10 @@ const processPayment = (payment: Payment): PaymentRespond => {
 const payMethMock = "creditCard";
 const amountMock = 500;
 
+interface ExtendedUser extends User {
+    age: number;
+}
+
+type TypeExtendedUser = User & { age: number; }
 
 console.log(processPayment({method: payMethMock, amount: amountMock}));
