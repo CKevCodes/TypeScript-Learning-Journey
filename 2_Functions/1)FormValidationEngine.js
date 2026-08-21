@@ -1,3 +1,4 @@
+"use strict";
 /*
 
 1. Input Validation Library (Backend Classic)
@@ -27,20 +28,29 @@ Stretch challenge:
 - This introduces higher-order functions.
 
 */
-var userData = {
+let userData = {
     email: "eTag@gmail.com",
     password: "encrypted",
     age: 19,
     status: "active"
 };
+const validateEmail = (email) => {
+    if (!/^\s\d{4}[.]\s.\s{4,5}$/.test(email)) {
+        return false;
+    }
+    return true;
+};
+console.log(validateEmail("what@car.ajajs"));
 function validateUser(data) {
-    var errors = [];
-    if (data.username.length < 3) {
-        errors.push("");
+    const errors = [];
+    if (data.username.length < 5) {
+        errors.push("Username must be at least 5 characters.");
     }
     if (data.password.length < 0 && data.password.length > 28) {
-        errors.push;
+        errors.push("Password must not be empty or lower than 28");
     }
+    if (data.age < 0)
+        errors.push("Age is inconsistent");
     return {
         valid: errors.length === 0,
         errors: errors
@@ -48,7 +58,8 @@ function validateUser(data) {
 }
 ;
 // Front-End
-var app = document.getElementById("app");
+/* const app = document.createElement("app");
+
 app.innerHTML = `
     <form>
         <div class="input-grp">
@@ -56,8 +67,12 @@ app.innerHTML = `
             <input type="text" id="usernameID">
         </div>
         <div class="input-grp">
+            <label for="ageID">Age</label>
+            <input type="password" id="ageID">
+        </div>
+        <div class="input-grp">
             <label for="passwordID">password</label>
             <input type="password" id="passwordID">
         </div>
     </form>
-`;
+`; */

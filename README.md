@@ -1,13 +1,13 @@
 # TypeScript-Learning-Journey
-This repository contains my TypeScript practice files from the "TypeScript Full Course for Beginners | Complete All-in-One Tutorial | 8 Hours". It documents my learning progress and experiments while studying TypeScript fundamentals. This course is a stepping stone toward gaining a deeper understanding of the front-end ecosystem before building real-world front-end applications.
+This repository contains my TypeScript practice files from the "TypeScript Full Course for Beginners | Complete All-in-One Tutorial | 8 Hours". It documents my learning progress and experiments while studying TypeScript fundamentals. This course is a stepping stone toward gaining a deeper understanding of the fundamental ecosystem before building real-world full-stack applications.
 
 ## About
 
 - Contains my TypeScript practice files from the **TypeScript Full Course for Beginners | Complete All-in-One Tutorial | 8 Hours**.
 - Documents my learning progress and coding experiments while studying TypeScript fundamentals.
 - Focuses on strengthening my understanding of typed JavaScript and modern development practices.
-- Serves as a stepping stone toward gaining a deeper understanding of the front-end ecosystem.
-- Prepares me for building real-world front-end applications using TypeScript.
+- Serves as a stepping stone toward gaining a deeper understanding of the fundamental ecosystem in web development.
+- Prepares me for building real-world applications using TypeScript.
 
 ## Course Outline
 
@@ -34,6 +34,7 @@ This repository contains my TypeScript practice files from the "TypeScript Full 
     - `npm install -g typescript` to enable ts compile command.
     - `tsc yourfile.ts` compile your ts file to js file.
     - `node index.js` to run the generated js file.
+    - you can also use the tsconfig.json to customize how your typescript files should be structured.
 
   2) Direct typescript execution
     - `npm install -g ts-node` to enable ts execution command.
@@ -49,8 +50,8 @@ This repository contains my TypeScript practice files from the "TypeScript Full 
         TypeScript allows you to deal with code 
         reliability early on.
 
-    - Lesson 1 Teaches about how types are used in TypeScript files.
+    - Lesson 1 Types. Teaches about how types are used in TypeScript files.
     
-    - Lesson 2 Defines how Functions can return a specific type and how its parameters should be defined and be maintained throughout the code block. There are also what we called preferred defined function types - 'inferred return types', in which a function can return any type and 'explicit return types', in which a function is defined to return a specific type
+    - Lesson 2 Functions Types. Defines how Functions can return a specific type and how its parameters should be defined and be maintained throughout the code block. There are also what we called preferred defined function types - 'inferred return types', in which a function can return any type and 'explicit return types', in which a function is defined to return a specific type
 
-    - Lesson 3 
+    - Lesson 3 Union Types. are explicit types and these types can have a custom type and we can also define types with two or more explicit types. Say an age for example, can return a number or undefined, const age: age | number;

@@ -42,7 +42,7 @@ export function makeSignage(standard: string = '2x3', instruction?: string) {
 }
 
 makeSignage("3x10.");
-makeSignage("3x5.", "The instructions are in the attatched file.");
+makeSignage("3x5.", "The instructions are in the attached file.");
 
 // this function calculates API cost per request and the rates are intended as incentives for each contract.
 export function calculateApiCost(numReqs: number, tier?: string) {
@@ -59,7 +59,7 @@ export function calculateApiCost(numReqs: number, tier?: string) {
 }
 
 let numberOfRequest = 10000;
-console.log(`calculateApiCost() without passing an argument for tier sample of 100 request: ${calculateApiCost(100)}`);
+console.log(`calculateApiCost() without passing an argument for tier sample of 100 request: $${calculateApiCost(100)}`);
 console.log(`Api Cost for ${numberOfRequest} request is: $${calculateApiCost(numberOfRequest,"enterprise")}`)
 
 export function getMessageStatus(statusCode: number) {
@@ -143,6 +143,42 @@ console.log(newCharacter("mark Zuckerberg."));
 
 // An example of Literal Type function is: A function that takes 3 specific string values as an argument. So a Union of different values.
 
-// function aimTrajectory(radius: number, pi = Math.PI): number {
-//     return radius/
-// }
+
+// CASE 1
+type DiceRoll = 1 | 2 | 3 | 4 | 5 | 6;
+
+const playDiceRoll = (): DiceRoll => {
+  let randomDice = Math.floor(Math.random() * 6) + 1 as DiceRoll;
+  return randomDice;
+}
+
+const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+const delayedPlayDice = async () => {
+  for (const _ of Array(15).keys()) {
+    console.log(`You rolled the Dice: ${playDiceRoll()}`);
+
+    await sleep(1000);
+  }
+}
+
+delayedPlayDice();
+
+
+// CASE 2 - Template literal types can be used in combination, however if you have too much types the permutations that had formed on these types are gonna cause an 'Error: Union type too complex to represent' by overloading the type combinations.
+export type LogLevel = 'info'|'warn'|'error';
+export type LogSourceType = 'api'|'database'|'auth';
+export type LogMessage = `${LogLevel}: ${string}`;
+export type LogSource = `${LogSourceType}_${number}`;
+
+export function createLogEntry(message: LogMessage, source: LogSourceType) {
+  return `[${source}] LOG - ${message}`;
+}
+
+/*
+  I've learned how unions can be used to define types explicitly with few 
+  possible options. These are Literal Types. There are also cases like template 
+  literal strings like the one on the top, where you form intersections between 
+  types by combining two types together to form a new one, but there are also 
+  downsides in using this kind of technique in complex literal types.
+*/

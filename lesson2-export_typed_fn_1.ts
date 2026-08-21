@@ -1,6 +1,5 @@
 export type formInputs = (name: string, age: number, role?: string) => string;
 
-
 export function sayHiToUser(name: string) {
     return `Hello ${name}, Welcome to PayPortal!`;
 }

@@ -16,9 +16,8 @@
     expect a formatted object for functions in special cases like
     how age in this case can be a number or undefined.
 */
+
 // Case 1
-
-
 type Human = {
     name: string;
     age: number | undefined;
@@ -64,12 +63,13 @@ function getHuman2(isHuman: boolean): Human2 {
 
     return {
         name: "Doe",
-        //age, // will return an error since age can be 'number | undefined' which was unassigned.
+        //age, // will return an error since age can be 'number | undefined' which was unassigned. if the 'else' statement was not written.
         age
     }
 }
 let human2 = getHuman2(false);
-console.log(human2.name)
+console.log(human2);
+console.log(human2.name);
 
 // Practical Cases
 /*
@@ -97,7 +97,7 @@ export function calculateTotal(
 console.log(`This is the total: PHP ${calculateTotal(200, 3, .20)}.`);
 
 
-// It easier to ignore typed numbers if it is inside a function that returns a string.
+// It is easier to ignore typed numbers if it is inside a function that returns a string.
 export function personObject(
     name: string,
     age: number | undefined,
@@ -220,8 +220,6 @@ function getValidAge(isValidAge: number) {
     */
 }
 
-let getAge
-
 // another example
 function combineMessage(systemMsg: string, userMsg: string) {
     return `${systemMsg}\n${userMsg}`
@@ -246,9 +244,10 @@ const user: User = {
 user.greet();
 
 export function logSystemEvent(event: string, severity: "info"|"warning"|"error"){
-    console.log(`System ${severity.toUpperCase}: ${event}.`);
+    console.log(`System ${severity.toUpperCase()}: ${event}.`);
 }
 
+logSystemEvent("The System has been compromised", "error");
 
 // lesson: function types
 const add = (a:number, b:number) => a+b;
@@ -272,7 +271,7 @@ type Student = {
     greet: () => void;
 }
 
-function createStudent(id: string, name: string, year:number, contactNumber: string):Student {
+function createStudent(id: string, name: string, year: number, contactNumber: string): Student {
 
     if(!/^24\d{5}-(1|2)$/.test(id)) {
         throw new Error("Invalid id.");
