@@ -102,71 +102,67 @@ set.add
 console.log(set.entries());
 
 
-
-// Definition for singly-linked list.
-  class ListNode {
-    val: number
-    next: ListNode | null
-    constructor(val?: number, next?: ListNode | null) {
-          this.val = (val===undefined ? 0 : val)
-          this.next = (next===undefined ? null : next)
-      }
-  }
-
-
-function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
-    const dummy = new ListNode(0);
-    let current = dummy;
-    let carry = 0;
-    
-    while (l1 !== null || l2 !== null || carry > 0) {
-        const sum = carry + (l1?.val ?? 0) + (l2?.val ?? 0);
-        carry = Math.floor(sum / 10);
-        current.next = new ListNode(sum % 10);
-        current = current.next;
-        if (l1) l1 = l1.next;
-        if (l2) l2 = l2.next;
-    }
-    
-    return dummy.next;
+export const findNumUniqueLabels = (formattedAddreses: string[]) => {
+  const set = new Set(formattedAddreses);
+  return set.size;
 }
 
-/**
- * Traverses a linked list and prints its values cleanly to the console.
- */
-function printLinkedList(head: ListNode | null): void {
-    let curr = head;
-    const values: number[] = [];
+// NOTE Start of Section 7 - Maps
+// NOTE are collections of key-value pairs with typeof [Object], you can specify the keys and values using type parameters <K,V>.
 
-    // Loop through every node until we hit the end (null)
-    while (curr !== null) {
-        values.push(curr.val); // Save the current node's value
-        curr = curr.next;      // Shift the pointer to the next node
-    }
+const podracerSpeeds = new Map<string, number>();
 
-    // Format 1: Visual arrow chain
-    const visualChain = values.length > 0 
-        ? values.join(" → ") + " → null" 
-        : "null";
+podracerSpeeds.set('Anaking Skywalker', 947);
+podracerSpeeds.set('Sebulba', 941);
 
-    // Format 2: Array style
-    const arrayStyle = `[${values.join(", ")}]`;
+// NOTE this will yield an error "not assignable to property."
+//podracerSpeeds.set('R2-D2', true);
 
-    console.log("Visual Format:", visualChain);
-    console.log("Array Format :", arrayStyle);
+export const getFileLength = (files: Map<string, string>, filename: string) => {
+  const file = files.get(filename)
+  if (file == null) return 0;
+  return new TextEncoder().encode(file).length
 }
 
-// l1 = [2, 7, 1, 1]
-const l1_case1 = new ListNode(2);
-l1_case1.next = new ListNode(4);
-l1_case1.next.next = new ListNode(3);
+// NOTE Start of Section 8 - Dynamic Keys
+// These are useful if you want to let the user of this type use their own key names.
+export type MailPreferences = {
+  [key: string]: boolean
+}
+export type MailPreferences2 = Record<string, boolean>
 
-// l2 = [5, 1]
-const l2_case1 = new ListNode(5);
-l2_case1.next = new ListNode(6);
-l2_case1.next.next = new ListNode(4);
+const a: MailPreferences = {
+  asdasd: true
+}
 
-// Plug it in:
-const result1 = addTwoNumbers(l1_case1, l2_case1);
+// NOTE As Const and Object.freeze
+// NOTE We can use const for objects and arrays so that they can only have specific properties or values.
 
-printLinkedList(result1);
+let z = "asjdl" as const;
+// z = "zzzz"; Type Error
+const x = "asjdl";
+
+export const defaultPreference = {
+  name: "Kreese",
+  doNotDisturb: false,
+  outOfOffice: false,
+} as const;
+// NOTE you can never change or update the property values, and can always have specific values.
+export const defaultPreference2 = Object.freeze({
+  name: "Kreese",
+  doNotDisturb: false,
+  outOfOffice: false,
+});
+// NOTE you can only freeze these on top-level in objects, meaning the nested ones can be changed.
+
+const colorsConst = ["red", "green", "blue"] as const
+// colorsConst[3];
+
+
+// NOTE Start of Section 9 - Satisfies
+// NOTE validates that a value matched a specific type without changing the inferred type.
+type B = { name: string; age: number };
+const b: B = { name: "Kyle", age: 2 } as const satisfies B;
+
+
+// NOTE Start of Section 10 - Function Overloads
