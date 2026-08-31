@@ -1,6 +1,6 @@
 // NOTE LESSON 5: Objects
 
-//NOTE Start of Section 1 - Object Literal Types
+// NOTE Start of Section 1 - Object Literal Types
 // NOTE This can be useful in auto-complete and code refactoring, in practical applications you often pass objects to functions and it will sometimes become tedious having to manually type everything that needs to be typed, so why not use this instead?
 export type Mail = {
   from: string;
@@ -37,6 +37,27 @@ export const pilot = (ship: Spaceship) => {
 }
 // NOTE This is a useful technique because it helps you filter out properties inside objects that you might not need if you pass that object to a function that would not even use some of the object's properties. Like in this example, where weapons exists inside the falcon object but is not used by the pilot. Also note that it is also useful in some cases where you passed in a hard-coded object which has mispellings.
 pilot(falcon);
+
+type Government = {
+  tax: number;
+  rate: number;
+  floodControlPlan: number;
+}
+
+const citizenPays = {
+  tax: 240,
+  rate: 24,
+}
+
+export const taxCollecting = (taxed: Government) => {
+  console.log(`This Person just paid for tax: ${taxed.tax}, rate: ${taxed.rate}, and floodControlPlan: ${taxed.floodControlPlan}`);
+}
+
+//The line below causes a Type Error
+//Argument of type '{ tax: number; rate: number; }' is not assignable to parameter of type 'Government'.
+  // Property 'floodControlPlan' is missing in type '{ tax: number; rate: number; }' but required in type 'Government'.
+// console.log(taxCollecting(citizenPays));
+
 // NOTE - this line will cause an ERROR: Object literal may only specify known properties
 // pilot({ name: "Millenium Falcon", speed: 75, weapons: 4});
 
@@ -48,6 +69,12 @@ type Superhero = {
   cape?: boolean;
 };
 
+const superheroModel : Superhero = {
+  name : "Alien X",
+  strength : 350,
+}
+
+console.log(superheroModel);
 
 // NOTE Start of Section 4 - Empty Object Type
 // NOTE INSIGHT: Everything in JavaScript is an object under the hood, every single thing in JavaScript is built on top of an object.
@@ -115,24 +142,34 @@ const podracerSpeeds = new Map<string, number>();
 podracerSpeeds.set('Anaking Skywalker', 947);
 podracerSpeeds.set('Sebulba', 941);
 
+console.log(podracerSpeeds);
+
 // NOTE this will yield an error "not assignable to property."
 //podracerSpeeds.set('R2-D2', true);
 
+// get the Map<string, string> represents filenames -> fileContents.
 export const getFileLength = (files: Map<string, string>, filename: string) => {
   const file = files.get(filename)
   if (file == null) return 0;
-  return new TextEncoder().encode(file).length
+  return new TextEncoder().encode(file).length;
 }
 
 // NOTE Start of Section 8 - Dynamic Keys
 // These are useful if you want to let the user of this type use their own key names.
 export type MailPreferences = {
-  [key: string]: boolean
+  [key: string]: boolean;
 }
+// 'Record' in TypeScript is just essentially an object, and you can specify the types.
 export type MailPreferences2 = Record<string, boolean>
 
-const a: MailPreferences = {
-  asdasd: true
+const setPreference = (
+  preferences: MailPreferences, 
+  key: string,
+  value: boolean,
+) => {
+  const exists = key in preferences;
+  preferences[key] = value;
+  return exists;
 }
 
 // NOTE As Const and Object.freeze
@@ -153,7 +190,7 @@ export const defaultPreference2 = Object.freeze({
   doNotDisturb: false,
   outOfOffice: false,
 });
-// NOTE you can only freeze these on top-level in objects, meaning the nested ones can be changed.
+// NOTE you can only freeze these on top-level in objects, meaning the nested ones cannot be changed.
 
 const colorsConst = ["red", "green", "blue"] as const
 // colorsConst[3];
@@ -163,6 +200,15 @@ const colorsConst = ["red", "green", "blue"] as const
 // NOTE validates that a value matched a specific type without changing the inferred type.
 type B = { name: string; age: number };
 const b: B = { name: "Kyle", age: 2 } as const satisfies B;
+// NOTE this causes discrepancy making the 'as const' obsolete since we are casting the type of b to align with B this ignores the readonly feature.
+const bb = { name: "Kyle", age: 2 } as const satisfies B;
+// NOTE make sure that bb variable is readonly but also checks if the type meets the qualification of the type B
 
 
 // NOTE Start of Section 10 - Function Overloads
+// NOTE Allows you to have multiple definitions for the same functions(note polymorphism) with different parameters that you can pass along.
+/*
+export function formatEmployeeMessage(employee: string): string;
+
+export function formatEmployeeMessage(employee: string, isNew: true, onboardedDate: Date): string;
+*/
