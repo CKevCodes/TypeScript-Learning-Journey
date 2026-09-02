@@ -147,4 +147,33 @@ const errorResponse: HttpResponse = [404, "", "Resource not found"];
 console.log(successResponse);
 console.log(errorResponse);
 
-// NOTE Start of Lesson 5 - 
+// NOTE Start of Lesson 5 - Tuple Rest Elements
+// NOTE Allows tupples to have a variable number of elements of a specific type using rest elements.
+// NOTE This is nice when you want a tuple to have a fixed-length beginning but a flexible-length ending.
+
+// NOTE Case 1 - NameAndScores
+type NameAndScores = [string, ...number[]];
+
+const nameAndScores: NameAndScores = ["Alphonse", 78, 35, 39];
+
+const [name, ...scores] = nameAndScores;
+
+console.log(nameAndScores);
+console.log(name);
+console.log(scores);
+
+// NOTE Case 2 - Command
+type Command = [name: string, ...args: string[]];
+const gitCommit: Command = ['git', 'commit', '-m', 'Add new features'];
+const npmInstall: Command = ['npm', 'install', 'typescript'];
+
+function executeCommand([cmd, ...args]: Command) {
+  // NOTE Notice how 'args' is used here, it is joined first so that each separated containing values are joined together
+  console.log(`Executing ${cmd} with arguments: ${args.join(" ")}`);
+}
+executeCommand(gitCommit);
+executeCommand(npmInstall);
+
+// NOTE It says that "I need a command string, but everything after that is optional".
+
+// NOTE Start of Lesson 6 -
