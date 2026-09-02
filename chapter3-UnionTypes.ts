@@ -32,7 +32,7 @@ console.log("this is type: " + typeof orderInfo);
 console.log(getOrderNumberInfo(orderInfo));
 
 
-// ----- OPTIONAL PARAMETER + DEFAULT PARAMETERS -----
+// Start of Lesson 1 - OPTIONAL PARAMETER + DEFAULT PARAMETERS -----
 
 
 // OPTIONAL PARAMETERS
@@ -85,7 +85,7 @@ calculateSquarePerimeter(400);
 calculateSquarePerimeter();
 
 
-// DEFAULT PARAMETERS
+// Start of Lesson 2 - DEFAULT PARAMETERS
 
 // Since we have defined default values for each parameters there's no need to define explicit types
 // This function does not only marks with a default(value and consequently, type) but also makes the parameter optional,

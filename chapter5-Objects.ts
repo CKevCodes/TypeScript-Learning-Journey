@@ -1,6 +1,6 @@
-// NOTE LESSON 5: Objects
+// NOTE Chapter 5: Objects
 
-// NOTE Start of Section 1 - Object Literal Types
+// NOTE Start of Lesson 1 - Object Literal Types
 // NOTE This can be useful in auto-complete and code refactoring, in practical applications you often pass objects to functions and it will sometimes become tedious having to manually type everything that needs to be typed, so why not use this instead?
 export type Mail = {
   from: string;
@@ -19,7 +19,7 @@ export const processMail = (mail: Mail) => {
   `;
 }
 
-// NOTE Start of Section 2 - Extra Properties
+// NOTE Start of Lesson 2 - Extra Properties
 // NOTE If you pass objects to functions with a defined type you can pass in extra properties for that functions, so no problemo if you forgot to type every values being passed down, BUT SO LONG AS THE Objects passed to functions contain the Properties of the TYPE you wouldn't have any errors!
 type Spaceship = {
   name: string;
@@ -62,7 +62,7 @@ export const taxCollecting = (taxed: Government) => {
 // pilot({ name: "Millenium Falcon", speed: 75, weapons: 4});
 
 
-// NOTE Start of Section 3 - Optional Object Properties
+// NOTE Start of Lesson 3 - Optional Object Properties
 type Superhero = {
   name: string;
   strength: number;
@@ -76,7 +76,7 @@ const superheroModel : Superhero = {
 
 console.log(superheroModel);
 
-// NOTE Start of Section 4 - Empty Object Type
+// NOTE Start of Lesson 4 - Empty Object Type
 // NOTE INSIGHT: Everything in JavaScript is an object under the hood, every single thing in JavaScript is built on top of an object.
 /*
   // NOTE for example.
@@ -94,7 +94,7 @@ console.log(typeof newUser);
 // NOTE the lesson key take-away here is that whenever you're working with objects in TypeSctipt always remember that you have to assign a type for it so that TypeScript would know that you are using an object 'blueprint'.
 
 
-// NOTE Start of Section 5 - Discriminated Unions
+// NOTE Start of Lesson 5 - Discriminated Unions
 // NOTE A discriminated unions essentially just tells you which type you are dealing with in object types. In this case discriminated or tagged unions can be identified with a 'kind' tag
 type MultipleChoiceLesson = {
   kind: "multiple-choice";
@@ -121,7 +121,7 @@ export const isCorrect = (lesson: Lesson): boolean => {
 }
 
 
-// NOTE Start of Section 6 - Sets
+// NOTE Start of Lesson 6 - Sets
 // NOTE TypeScript has a built-in types for sets, which are collections of unique values. You can ensure that all the values in the set are of the same type by specifying a type parameter: <T>
 const set = new Set<string>();
 set.add("loml");
@@ -134,7 +134,7 @@ export const findNumUniqueLabels = (formattedAddreses: string[]) => {
   return set.size;
 }
 
-// NOTE Start of Section 7 - Maps
+// NOTE Start of Lesson 7 - Maps
 // NOTE are collections of key-value pairs with typeof [Object], you can specify the keys and values using type parameters <K,V>.
 
 const podracerSpeeds = new Map<string, number>();
@@ -154,7 +154,7 @@ export const getFileLength = (files: Map<string, string>, filename: string) => {
   return new TextEncoder().encode(file).length;
 }
 
-// NOTE Start of Section 8 - Dynamic Keys
+// NOTE Start of Lesson 8 - Dynamic Keys
 // These are useful if you want to let the user of this type use their own key names.
 export type MailPreferences = {
   [key: string]: boolean;
@@ -196,7 +196,7 @@ const colorsConst = ["red", "green", "blue"] as const
 // colorsConst[3];
 
 
-// NOTE Start of Section 9 - Satisfies
+// NOTE Start of Lesson 9 - Satisfies
 // NOTE validates that a value matched a specific type without changing the inferred type.
 type B = { name: string; age: number };
 const b: B = { name: "Kyle", age: 2 } as const satisfies B;
@@ -205,7 +205,7 @@ const bb = { name: "Kyle", age: 2 } as const satisfies B;
 // NOTE make sure that bb variable is readonly but also checks if the type meets the qualification of the type B
 
 
-// NOTE Start of Section 10 - Function Overloads
+// NOTE Start of Lesson 10 - Function Overloads
 // NOTE Allows you to have multiple definitions for the same functions(note polymorphism) with different parameters that you can pass along.
 /*
 export function formatEmployeeMessage(employee: string): string;

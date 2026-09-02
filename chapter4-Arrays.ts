@@ -1,8 +1,7 @@
-// Lesson 4 - Arrays in TypeScript!
+// Chapter 4 - Arrays in TypeScript!
 
 
-// Start of Section 1
-// Passing arrays inside parameters in Functions
+// NOTE Start of Lesson 4 - Passing arrays inside parameters in Functions
 // CASE 1: Using arrays in parameters in TS
 const sleep = (ms:number) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -45,8 +44,7 @@ console.log(twoSum([3,2,4], 6))
 // End of Section 1
 
 
-// Start of Section 2
-// Heterogeneous Arrays
+// NOTE Start of Section 2 - Heterogeneous Arrays
 // - are Arrays that can have more than one type inside of arrays
 // CASE 1:
 let lightsaberStyles = [1, 2, "double", "shoto"];
@@ -74,7 +72,7 @@ export const interpolateComment = (
 // like using 
 // End of Section 2
 
-// Start of Section 3
+// NOTE Start of Section 3 - Rest Parameters
 
 // CASE 1: Rest Parameters
 // Rest Parameters allow an indefinite number of final arguments, and brings them into the function body as an array.
@@ -99,7 +97,7 @@ console.log(msg1);
 // End of Section 3
 
 
-// Start of Section 4
+// NOTE Start of Section 4 - Evolving Array
 
 // CASE 1: EVOLVING ARRAY
 // If you create a new empty array, it infer it as any[]

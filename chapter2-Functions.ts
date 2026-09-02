@@ -7,7 +7,7 @@
 */
 
 
-// Start of Explicit Types
+// Start of Lesson 1 - Explicit Types
 
 // undefined age
 /*
@@ -197,7 +197,7 @@ function validateOrder(order: any): 200|400|500 {
 
 
 
-// Start of Implicit Types
+// Start of Lesson 2 - Implicit Types
 
 
 function getValidAge(isValidAge: number) {

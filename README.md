@@ -50,8 +50,11 @@ This repository contains my TypeScript practice files from the "TypeScript Full 
         TypeScript allows you to deal with code 
         reliability early on.
 
-    - Lesson 1 Types. Teaches about how types are used in TypeScript files.
+    - Chapter 1 Types. Teaches about how types are used in TypeScript files.
     
-    - Lesson 2 Functions Types. Defines how Functions can return a specific type and how its parameters should be defined and be maintained throughout the code block. There are also what we called preferred defined function types - 'inferred return types', in which a function can return any type and 'explicit return types', in which a function is defined to return a specific type
+    - Chapter 2 Functions Types. Defines how Functions can return a specific type and how its parameters should be defined and be maintained throughout the code block. There are also what we called preferred defined function types - 'inferred return types', in which a function can return any type and 'explicit return types', in which a function is defined to return a specific type
 
-    - Lesson 3 Union Types. are explicit types and these types can have a custom type and we can also define types with two or more explicit types. Say an age for example, can return a number or undefined, const age: age | number;
+    - Chapter 3 Union Types. are explicit types and these types can have a custom type and we can also define types with two or more explicit types. Say an age for example, can return a number or undefined, const age: age | number;
+
+
+    - You can search through each Chapter the Lessons by Searching 'Start of Lesson ...' to get through the concepts for each chapter.
